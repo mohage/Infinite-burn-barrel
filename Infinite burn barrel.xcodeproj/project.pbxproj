@@ -429,7 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 867U96Q8MZ;
 				INFOPLIST_FILE = "Infinite burn barrel/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Burn-institute.Infinite-burn-barrel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,7 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 867U96Q8MZ;
 				INFOPLIST_FILE = "Infinite burn barrel/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Burn-institute.Infinite-burn-barrel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 867U96Q8MZ;
 				INFOPLIST_FILE = "Infinite burn barrelTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Burn-institute.Infinite-burn-barrelTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -479,6 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 867U96Q8MZ;
 				INFOPLIST_FILE = "Infinite burn barrelTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Burn-institute.Infinite-burn-barrelTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,6 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 867U96Q8MZ;
 				INFOPLIST_FILE = "Infinite burn barrelUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Burn-institute.Infinite-burn-barrelUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,6 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 867U96Q8MZ;
 				INFOPLIST_FILE = "Infinite burn barrelUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Burn-institute.Infinite-burn-barrelUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
