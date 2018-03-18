@@ -18,7 +18,7 @@
 		77EBE17C205EA5540013D5E6 /* BLEControllerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */; };
 		77EBE187205EBD5B0013D5E6 /* InfiniteBurnBarrelReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */; };
 		77EBE188205EBD5B0013D5E6 /* InfiniteBurnBarrelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE185205EBD5A0013D5E6 /* InfiniteBurnBarrelController.swift */; };
-		77EBE189205EBD5B0013D5E6 /* InfiniteBurnBarrelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE186205EBD5A0013D5E6 /* InfiniteBurnBarrelFactory.swift */; };
+		77EBE18B205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE18A205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 		77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEControllerConfig.swift; sourceTree = "<group>"; };
 		77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelReadable.swift; sourceTree = "<group>"; };
 		77EBE185205EBD5A0013D5E6 /* InfiniteBurnBarrelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelController.swift; sourceTree = "<group>"; };
-		77EBE186205EBD5A0013D5E6 /* InfiniteBurnBarrelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelFactory.swift; sourceTree = "<group>"; };
+		77EBE18A205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 			children = (
 				77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */,
 				77EBE185205EBD5A0013D5E6 /* InfiniteBurnBarrelController.swift */,
-				77EBE186205EBD5A0013D5E6 /* InfiniteBurnBarrelFactory.swift */,
+				77EBE18A205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift */,
 			);
 			path = Barrel;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 				3119A59F20454178004378AE /* AppDelegate.swift in Sources */,
 				77EBE17B205EA5540013D5E6 /* BLEController.swift in Sources */,
 				77EBE187205EBD5B0013D5E6 /* InfiniteBurnBarrelReadable.swift in Sources */,
-				77EBE189205EBD5B0013D5E6 /* InfiniteBurnBarrelFactory.swift in Sources */,
+				77EBE18B205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

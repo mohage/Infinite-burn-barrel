@@ -18,7 +18,11 @@ protocol InfiniteBurnBarrelDelegate: AnyObject {
     func infiniteBurnBarrelDidReceiveReadings(_ barrel: InfiniteBurnBarrelControllable, _ readings: InfiniteBurnBarrelReadable)
 }
 
-protocol InfiniteBurnBarrelControllable {
+protocol InfiniteBurnBarrelControllable
+{
+    func connect()
+    func disconnect()
+    
     var lastReading: InfiniteBurnBarrelReadable? { get }
     func sendReadings(_ readings: InfiniteBurnBarrelReadable)
     
@@ -31,14 +35,11 @@ class InfiniteBurnBarrelController: InfiniteBurnBarrelControllable
     private(set) var lastReading: InfiniteBurnBarrelReadable?
     
     private var bleController: BLEControllable
-    private var factory: InfiniteBurnBarrelFactoryProtocol
     
-    init(_ bleController: BLEControllable = BLEController(),
-         _ factory: InfiniteBurnBarrelFactoryProtocol = InfiniteBurnBarrelFactory())
-    {
+    init(_ bleController: BLEControllable = BLEController()) {
         self.bleController = bleController
-        self.factory = factory
         self.setupController()
+        self.lastReading = InfiniteBurnBarrelReading()
     }
     
     private func setupController()
@@ -60,7 +61,7 @@ class InfiniteBurnBarrelController: InfiniteBurnBarrelControllable
         }
         
         bleController.onDataReceived = { (string) in
-            self.lastReading = self.factory.fromString(string)
+            self.lastReading?.update(withCommand: InfiniteBurnBarrelCommand.command(fromString: string)) // TODO: Decouple the command processor from the class.
             if let reading = self.lastReading {
                 self.controllerDelegates.forEach({ (delegate) in
                     DispatchQueue.main.async {
@@ -71,12 +72,23 @@ class InfiniteBurnBarrelController: InfiniteBurnBarrelControllable
         }
     }
     
+    func connect() {
+        bleController.connect()
+    }
+    
+    func disconnect() {
+        bleController.disconnect()
+    }
+    
+    // TODO: Send commands
+    private var lastSentCommands: [InfiniteBurnBarrelCommand] = []
     func sendReadings(_ readings: InfiniteBurnBarrelReadable) {
-        guard let dataString = factory.toString(readings) else {
-            return
-        }
         
-        bleController.sendData(dataString)
+        // generate an arrays of commands between this object and the lastReadings...
+        
+        let commandsToSend: [InfiniteBurnBarrelCommand] = []
+        
+        commandsToSend.forEach { self.bleController.sendData($0.string) }
     }
     
     // MARK: - Delegates Management
