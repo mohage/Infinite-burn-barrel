@@ -37,6 +37,7 @@ class BarrelViewController: UIViewController {
     }
     
     // MARK: - UI Setters
+    // TODO: Is this supposed to be the blower status? Wouldn't a switch be better?
     private func setStatus(on: Bool) {
         statusValueLabel.text = on ? "on" : "off"
         statusValueLabel.textColor = on ? .blue : .red
@@ -53,7 +54,7 @@ class BarrelViewController: UIViewController {
     
     // Desired combustion temperature.
     private func setDesiredCombustionTemp(value: Int) {
-        combustionTempSetLabel.text = "Set to (\(formattedString(temperature: value)):"
+        combustionTempSetLabel.text = "Set to (\(formattedString(temperature: value))):"
     }
     
     private func setHotPlateTemp(value: Int) {
@@ -85,7 +86,7 @@ class BarrelViewController: UIViewController {
     }
     
     private func setDesiredHotWaterTemp(value: Int) {
-        hotWaterSetLabel.text = "Set to (\(formattedString(temperature: value)):"
+        hotWaterSetLabel.text = "Set to (\(formattedString(temperature: value))):"
     }
     
     private func setLantern(on: Bool) {
@@ -131,13 +132,17 @@ class BarrelViewController: UIViewController {
     }
     
     // MARK: - Actions
+    // TODO: Change min/max values in the storyboard!
     @IBAction func onCombustionTempChangedAction(_ sender: UISlider) {
+        setDesiredCombustionTemp(value: Int(sender.value))
     }
     
     @IBAction func onInstantHotWaterChangedAction(_ sender: UISwitch) {
     }
     
+    // TODO: Change min/max values in the storyboard!
     @IBAction func onHotWaterTempChangedAction(_ sender: UISlider) {
+        setDesiredHotWaterTemp(value: Int(sender.value))
     }
     
     @IBAction func onLanternChangedAction(_ sender: UISwitch) {

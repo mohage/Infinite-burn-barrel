@@ -1,0 +1,6 @@
+framework module Pods_Infinite_burn_barrelUITests {
+  umbrella header "Pods-Infinite burn barrelUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

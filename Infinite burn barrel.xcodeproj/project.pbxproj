@@ -13,12 +13,15 @@
 		3119A5A920454178004378AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3119A5A720454178004378AE /* LaunchScreen.storyboard */; };
 		3119A5B420454179004378AE /* Infinite_burn_barrelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119A5B320454179004378AE /* Infinite_burn_barrelTests.swift */; };
 		3119A5BF20454179004378AE /* Infinite_burn_barrelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119A5BE20454179004378AE /* Infinite_burn_barrelUITests.swift */; };
+		31B6144761F828A747A60ABD /* Pods_Infinite_burn_barrelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598A7E6CA9794FD4FF4D1A49 /* Pods_Infinite_burn_barrelTests.framework */; };
 		77A13D652067D52C00E785D0 /* BarrelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A13D642067D52C00E785D0 /* BarrelViewController.swift */; };
 		77EBE17B205EA5540013D5E6 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE179205EA5540013D5E6 /* BLEController.swift */; };
 		77EBE17C205EA5540013D5E6 /* BLEControllerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */; };
 		77EBE187205EBD5B0013D5E6 /* InfiniteBurnBarrelReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */; };
 		77EBE188205EBD5B0013D5E6 /* InfiniteBurnBarrelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE185205EBD5A0013D5E6 /* InfiniteBurnBarrelController.swift */; };
 		77EBE18B205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE18A205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift */; };
+		ACF0DC8BB6CA55D0FF91BB93 /* Pods_Infinite_burn_barrelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD25EDB764BDCB001C6E1A5 /* Pods_Infinite_burn_barrelUITests.framework */; };
+		BFB39321E6B78600714F71DE /* Pods_Infinite_burn_barrel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D6D5ADAB7936CDEFE6277F /* Pods_Infinite_burn_barrel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08D6D5ADAB7936CDEFE6277F /* Pods_Infinite_burn_barrel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Infinite_burn_barrel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BA94A21A14AFCE0E7AB1049 /* Pods-Infinite burn barrel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrel/Pods-Infinite burn barrel.release.xcconfig"; sourceTree = "<group>"; };
 		3119A59B20454178004378AE /* Infinite burn barrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Infinite burn barrel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3119A59E20454178004378AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3119A5A320454178004378AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,12 +56,19 @@
 		3119A5BA20454179004378AE /* Infinite burn barrelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Infinite burn barrelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3119A5BE20454179004378AE /* Infinite_burn_barrelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infinite_burn_barrelUITests.swift; sourceTree = "<group>"; };
 		3119A5C020454179004378AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		598A7E6CA9794FD4FF4D1A49 /* Pods_Infinite_burn_barrelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Infinite_burn_barrelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63BA1BD3862706FB0D5D713D /* Pods-Infinite burn barrelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrelTests/Pods-Infinite burn barrelTests.release.xcconfig"; sourceTree = "<group>"; };
+		73BAA19D5051EE61295C9601 /* Pods-Infinite burn barrelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrelUITests/Pods-Infinite burn barrelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		77A13D642067D52C00E785D0 /* BarrelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarrelViewController.swift; sourceTree = "<group>"; };
 		77EBE179205EA5540013D5E6 /* BLEController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEControllerConfig.swift; sourceTree = "<group>"; };
 		77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelReadable.swift; sourceTree = "<group>"; };
 		77EBE185205EBD5A0013D5E6 /* InfiniteBurnBarrelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelController.swift; sourceTree = "<group>"; };
 		77EBE18A205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelCommand.swift; sourceTree = "<group>"; };
+		820903FEE51CAF9862241F5D /* Pods-Infinite burn barrel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrel/Pods-Infinite burn barrel.debug.xcconfig"; sourceTree = "<group>"; };
+		9B500267F692FEF7305EF8DF /* Pods-Infinite burn barrelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrelTests/Pods-Infinite burn barrelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F3C09FCDB2E6F5B00CD18BC2 /* Pods-Infinite burn barrelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrelUITests/Pods-Infinite burn barrelUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FFD25EDB764BDCB001C6E1A5 /* Pods_Infinite_burn_barrelUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Infinite_burn_barrelUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB39321E6B78600714F71DE /* Pods_Infinite_burn_barrel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B6144761F828A747A60ABD /* Pods_Infinite_burn_barrelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF0DC8BB6CA55D0FF91BB93 /* Pods_Infinite_burn_barrelUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +106,8 @@
 				3119A5B220454179004378AE /* Infinite burn barrelTests */,
 				3119A5BD20454179004378AE /* Infinite burn barrelUITests */,
 				3119A59C20454178004378AE /* Products */,
+				713A19D5AD2AEF22BBCCB35E /* Pods */,
+				D3DB58E70CB09A33790E44A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +153,19 @@
 			path = "Infinite burn barrelUITests";
 			sourceTree = "<group>";
 		};
+		713A19D5AD2AEF22BBCCB35E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				820903FEE51CAF9862241F5D /* Pods-Infinite burn barrel.debug.xcconfig */,
+				2BA94A21A14AFCE0E7AB1049 /* Pods-Infinite burn barrel.release.xcconfig */,
+				9B500267F692FEF7305EF8DF /* Pods-Infinite burn barrelTests.debug.xcconfig */,
+				63BA1BD3862706FB0D5D713D /* Pods-Infinite burn barrelTests.release.xcconfig */,
+				73BAA19D5051EE61295C9601 /* Pods-Infinite burn barrelUITests.debug.xcconfig */,
+				F3C09FCDB2E6F5B00CD18BC2 /* Pods-Infinite burn barrelUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		77A13D612067D46E00E785D0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +202,16 @@
 			path = Barrel;
 			sourceTree = "<group>";
 		};
+		D3DB58E70CB09A33790E44A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08D6D5ADAB7936CDEFE6277F /* Pods_Infinite_burn_barrel.framework */,
+				598A7E6CA9794FD4FF4D1A49 /* Pods_Infinite_burn_barrelTests.framework */,
+				FFD25EDB764BDCB001C6E1A5 /* Pods_Infinite_burn_barrelUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3119A5C320454179004378AE /* Build configuration list for PBXNativeTarget "Infinite burn barrel" */;
 			buildPhases = (
+				6382D383F7B418CFB60E2811 /* [CP] Check Pods Manifest.lock */,
 				3119A59720454178004378AE /* Sources */,
 				3119A59820454178004378AE /* Frameworks */,
 				3119A59920454178004378AE /* Resources */,
+				302541E25B79502F161BC611 /* [CP] Embed Pods Frameworks */,
+				57C4119641DF2B21A9E68E7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,9 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3119A5C620454179004378AE /* Build configuration list for PBXNativeTarget "Infinite burn barrelTests" */;
 			buildPhases = (
+				1B1B4A66D3E5805BDB0D5FE6 /* [CP] Check Pods Manifest.lock */,
 				3119A5AB20454179004378AE /* Sources */,
 				3119A5AC20454179004378AE /* Frameworks */,
 				3119A5AD20454179004378AE /* Resources */,
+				DB5AAE0DA0E15D3F264C657A /* [CP] Embed Pods Frameworks */,
+				4AAD8B9FA00DAEC5035A0A36 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,9 +260,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3119A5C920454179004378AE /* Build configuration list for PBXNativeTarget "Infinite burn barrelUITests" */;
 			buildPhases = (
+				DF5FBAB448416537607E32D3 /* [CP] Check Pods Manifest.lock */,
 				3119A5B620454179004378AE /* Sources */,
 				3119A5B720454179004378AE /* Frameworks */,
 				3119A5B820454179004378AE /* Resources */,
+				6372451B3CFB3934966C8F61 /* [CP] Embed Pods Frameworks */,
+				312D4B58543EADAC36689A95 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,6 +354,156 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B1B4A66D3E5805BDB0D5FE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Infinite burn barrelTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		302541E25B79502F161BC611 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Infinite burn barrel/Pods-Infinite burn barrel-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Infinite burn barrel/Pods-Infinite burn barrel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		312D4B58543EADAC36689A95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Infinite burn barrelUITests/Pods-Infinite burn barrelUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AAD8B9FA00DAEC5035A0A36 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Infinite burn barrelTests/Pods-Infinite burn barrelTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57C4119641DF2B21A9E68E7B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Infinite burn barrel/Pods-Infinite burn barrel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6372451B3CFB3934966C8F61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Infinite burn barrelUITests/Pods-Infinite burn barrelUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6382D383F7B418CFB60E2811 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Infinite burn barrel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB5AAE0DA0E15D3F264C657A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Infinite burn barrelTests/Pods-Infinite burn barrelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF5FBAB448416537607E32D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Infinite burn barrelUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3119A59720454178004378AE /* Sources */ = {
@@ -481,6 +680,7 @@
 		};
 		3119A5C420454179004378AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 820903FEE51CAF9862241F5D /* Pods-Infinite burn barrel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -497,6 +697,7 @@
 		};
 		3119A5C520454179004378AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BA94A21A14AFCE0E7AB1049 /* Pods-Infinite burn barrel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -513,6 +714,7 @@
 		};
 		3119A5C720454179004378AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B500267F692FEF7305EF8DF /* Pods-Infinite burn barrelTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -531,6 +733,7 @@
 		};
 		3119A5C820454179004378AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63BA1BD3862706FB0D5D713D /* Pods-Infinite burn barrelTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -549,6 +752,7 @@
 		};
 		3119A5CA20454179004378AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73BAA19D5051EE61295C9601 /* Pods-Infinite burn barrelUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,6 +770,7 @@
 		};
 		3119A5CB20454179004378AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3C09FCDB2E6F5B00CD18BC2 /* Pods-Infinite burn barrelUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
