@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3119A59F20454178004378AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119A59E20454178004378AE /* AppDelegate.swift */; };
-		3119A5A120454178004378AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119A5A020454178004378AE /* ViewController.swift */; };
 		3119A5A420454178004378AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3119A5A220454178004378AE /* Main.storyboard */; };
 		3119A5A620454178004378AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3119A5A520454178004378AE /* Assets.xcassets */; };
 		3119A5A920454178004378AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3119A5A720454178004378AE /* LaunchScreen.storyboard */; };
 		3119A5B420454179004378AE /* Infinite_burn_barrelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119A5B320454179004378AE /* Infinite_burn_barrelTests.swift */; };
 		3119A5BF20454179004378AE /* Infinite_burn_barrelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119A5BE20454179004378AE /* Infinite_burn_barrelUITests.swift */; };
+		77A13D652067D52C00E785D0 /* BarrelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A13D642067D52C00E785D0 /* BarrelViewController.swift */; };
 		77EBE17B205EA5540013D5E6 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE179205EA5540013D5E6 /* BLEController.swift */; };
 		77EBE17C205EA5540013D5E6 /* BLEControllerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */; };
 		77EBE187205EBD5B0013D5E6 /* InfiniteBurnBarrelReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */; };
@@ -41,7 +41,6 @@
 /* Begin PBXFileReference section */
 		3119A59B20454178004378AE /* Infinite burn barrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Infinite burn barrel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3119A59E20454178004378AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3119A5A020454178004378AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3119A5A320454178004378AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3119A5A520454178004378AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3119A5A820454178004378AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		3119A5BA20454179004378AE /* Infinite burn barrelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Infinite burn barrelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3119A5BE20454179004378AE /* Infinite_burn_barrelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infinite_burn_barrelUITests.swift; sourceTree = "<group>"; };
 		3119A5C020454179004378AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77A13D642067D52C00E785D0 /* BarrelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarrelViewController.swift; sourceTree = "<group>"; };
 		77EBE179205EA5540013D5E6 /* BLEController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEControllerConfig.swift; sourceTree = "<group>"; };
 		77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelReadable.swift; sourceTree = "<group>"; };
@@ -107,9 +107,9 @@
 		3119A59D20454178004378AE /* Infinite burn barrel */ = {
 			isa = PBXGroup;
 			children = (
+				77A13D612067D46E00E785D0 /* UI */,
 				77EBE173205E8FDB0013D5E6 /* Controllers */,
 				3119A59E20454178004378AE /* AppDelegate.swift */,
-				3119A5A020454178004378AE /* ViewController.swift */,
 				3119A5A220454178004378AE /* Main.storyboard */,
 				3119A5A520454178004378AE /* Assets.xcassets */,
 				3119A5A720454178004378AE /* LaunchScreen.storyboard */,
@@ -134,6 +134,14 @@
 				3119A5C020454179004378AE /* Info.plist */,
 			);
 			path = "Infinite burn barrelUITests";
+			sourceTree = "<group>";
+		};
+		77A13D612067D46E00E785D0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				77A13D642067D52C00E785D0 /* BarrelViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		77EBE173205E8FDB0013D5E6 /* Controllers */ = {
@@ -303,10 +311,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3119A5A120454178004378AE /* ViewController.swift in Sources */,
 				77EBE17C205EA5540013D5E6 /* BLEControllerConfig.swift in Sources */,
 				77EBE188205EBD5B0013D5E6 /* InfiniteBurnBarrelController.swift in Sources */,
 				3119A59F20454178004378AE /* AppDelegate.swift in Sources */,
+				77A13D652067D52C00E785D0 /* BarrelViewController.swift in Sources */,
 				77EBE17B205EA5540013D5E6 /* BLEController.swift in Sources */,
 				77EBE187205EBD5B0013D5E6 /* InfiniteBurnBarrelReadable.swift in Sources */,
 				77EBE18B205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift in Sources */,
