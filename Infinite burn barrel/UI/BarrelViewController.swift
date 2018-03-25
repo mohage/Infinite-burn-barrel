@@ -10,9 +10,139 @@ import UIKit
 
 class BarrelViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var statusValueLabel: UILabel!
+    @IBOutlet weak var blowerValueLabel: UILabel!
+    @IBOutlet weak var combustionTempValueLabel: UILabel!
+    @IBOutlet weak var combustionTempSetLabel: UILabel!
+    @IBOutlet weak var hotPlateTempValueLabel: UILabel!
+    @IBOutlet weak var heatSinkTempValueLabel: UILabel!
+    @IBOutlet weak var tegValueLabel: UILabel!
+    @IBOutlet weak var batteryValueLabel: UILabel!
+    @IBOutlet weak var dumpLoadValueLabel: UILabel!
+    @IBOutlet weak var instantHotWaterSwitch: UISwitch!
+    @IBOutlet weak var hotWaterValueLabel: UILabel!
+    @IBOutlet weak var hotWaterSetLabel: UILabel!
+    @IBOutlet weak var lanternSwitch: UISwitch!
+    @IBOutlet weak var speakerSwitch: UISwitch!
+    @IBOutlet weak var speakerDiscoverableLabel: UILabel!
+    @IBOutlet weak var listenValueLabel: UILabel!
+    @IBOutlet weak var speakTextField: UITextField!
+    @IBOutlet weak var footerTextValueLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - UI Setters
+    private func setStatus(on: Bool) {
+        statusValueLabel.text = on ? "on" : "off"
+        statusValueLabel.textColor = on ? .blue : .red
+    }
+    
+    private func setBlower(value: Int) {
+        blowerValueLabel.text = formattedString(percentage: value)
+    }
+    
+    // Existing combustion temperature. Read from the device.
+    private func setCombustionTemp(value: Int) {
+        combustionTempValueLabel.text = formattedString(temperature: value)
+    }
+    
+    // Desired combustion temperature.
+    private func setDesiredCombustionTemp(value: Int) {
+        combustionTempSetLabel.text = "Set to (\(formattedString(temperature: value)):"
+    }
+    
+    private func setHotPlateTemp(value: Int) {
+        hotPlateTempValueLabel.text = formattedString(temperature: value)
+    }
+    
+    private func setHeatSinkTemp(value: Int) {
+        heatSinkTempValueLabel.text = formattedString(temperature: value)
+    }
+    
+    private func setTEG(volts: Double, amps: Double, watts: Double) {
+        tegValueLabel.text = formattedString(volts: volts, amps: amps, watts: watts)
+    }
+    
+    private func setBattery(volts: Double, amps: Double, watts: Double) {
+        batteryValueLabel.text = formattedString(volts: volts, amps: amps, watts: watts)
+    }
+    
+    private func setDumpLoad(value: Int) {
+        dumpLoadValueLabel.text = formattedString(percentage: value)
+    }
+    
+    private func setInstantHotWater(on: Bool) {
+        instantHotWaterSwitch.setOn(on, animated: true)
+    }
+    
+    private func setHotWaterTemp(value: Int) {
+        hotWaterSetLabel.text = formattedString(temperature: value)
+    }
+    
+    private func setDesiredHotWaterTemp(value: Int) {
+        hotWaterSetLabel.text = "Set to (\(formattedString(temperature: value)):"
+    }
+    
+    private func setLantern(on: Bool) {
+        lanternSwitch.setOn(on, animated: true)
+    }
+    
+    private func setSpeaker(on: Bool) {
+        speakerSwitch.setOn(on, animated: true)
+    }
+    
+    private func setSpeakerDiscoverable(discoverable: Bool) {
+        speakerDiscoverableLabel.text = discoverable ? "Discoverable" : "Not Discoverable"
+        speakerDiscoverableLabel.textColor = discoverable ? .blue : .red
+    }
+    
+    private func appendToListenLabel(text: String) {
+        listenValueLabel.text = listenValueLabel.text ?? "" + text
+    }
+    
+    private func clearListenLabel() {
+        listenValueLabel.text = ""
+    }
+    
+    private func setSpeakText(value: String) {
+        speakTextField.text = value
+    }
+    
+    private func setFooterText(value: String) {
+        footerTextValueLabel.text = value
+    }
+    
+    // MARK: - String Formatters
+    private func formattedString(percentage: Int) -> String {
+        return "\(percentage)%"
+    }
+    
+    private func formattedString(temperature: Int) -> String {
+        return "\(temperature)F"
+    }
+    
+    private func formattedString(volts: Double, amps: Double, watts: Double) -> String {
+        return String(format: "%.1fV, %.1fA, %.1fW", volts, amps, watts)
+    }
+    
+    // MARK: - Actions
+    @IBAction func onCombustionTempChangedAction(_ sender: UISlider) {
+    }
+    
+    @IBAction func onInstantHotWaterChangedAction(_ sender: UISwitch) {
+    }
+    
+    @IBAction func onHotWaterTempChangedAction(_ sender: UISlider) {
+    }
+    
+    @IBAction func onLanternChangedAction(_ sender: UISwitch) {
+    }
+    
+    @IBAction func onSpeakerChangedAction(_ sender: UISwitch) {
     }
 }
