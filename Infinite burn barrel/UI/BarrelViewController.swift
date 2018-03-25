@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 class BarrelViewController: UIViewController {
 
@@ -30,10 +31,20 @@ class BarrelViewController: UIViewController {
     @IBOutlet weak var speakTextField: UITextField!
     @IBOutlet weak var footerTextValueLabel: UILabel!
     
+    private let barrelController = InfiniteBurnBarrelController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupBarrelController()
+    }
+    
+    deinit {
+        barrelController.removeDelegate(self)
+    }
+    
+    private func setupBarrelController() {
+        barrelController.addDelegate(self)
     }
     
     // MARK: - UI Setters
@@ -131,23 +142,63 @@ class BarrelViewController: UIViewController {
         return String(format: "%.1fV, %.1fA, %.1fW", volts, amps, watts)
     }
     
+    // TODO: Finish this method when you defined all the properties for the barrel!
+    fileprivate func updateUI(withReadings readings: InfiniteBurnBarrelReadable) {
+        
+        // TODO: This is for testing only
+        setHotWaterTemp(value: readings.blower)
+        setInstantHotWater(on: readings.fan)
+    }
+    
     // MARK: - Actions
     // TODO: Change min/max values in the storyboard!
     @IBAction func onCombustionTempChangedAction(_ sender: UISlider) {
+        DDLogVerbose("[BarrelVC - Action] Desired combustion temp slider - value: \(sender.value)")
         setDesiredCombustionTemp(value: Int(sender.value))
     }
     
     @IBAction func onInstantHotWaterChangedAction(_ sender: UISwitch) {
+        DDLogVerbose("[BarrelVC - Action] Instant hot water switch changed - isOn: \(sender.isOn)")
+        
+        // TODO: This is for demo only, replace with real values once you have them
+        if var newReadings = barrelController.lastReading {
+            newReadings.fan = sender.isOn
+            barrelController.sendReadings(newReadings)
+        }
     }
     
     // TODO: Change min/max values in the storyboard!
     @IBAction func onHotWaterTempChangedAction(_ sender: UISlider) {
+        DDLogVerbose("[BarrelVC - Action] Desired hot water temp slider - value: \(sender.value)")
         setDesiredHotWaterTemp(value: Int(sender.value))
+        
+        // TODO: This is for demo only, replace with real values once you have them
+        if var newReadings = barrelController.lastReading {
+            newReadings.blower = Int(sender.value)
+            barrelController.sendReadings(newReadings)
+        }
     }
     
     @IBAction func onLanternChangedAction(_ sender: UISwitch) {
+        DDLogVerbose("[BarrelVC - Action] Lantern switch changed - isOn: \(sender.isOn)")
     }
     
     @IBAction func onSpeakerChangedAction(_ sender: UISwitch) {
+        DDLogVerbose("[BarrelVC - Action] Speaker switch changed - isOn: \(sender.isOn)")
+    }
+}
+
+// MARK: - InfiniteBurnBarrelDelegate
+extension BarrelViewController: InfiniteBurnBarrelDelegate {
+    func infiniteBurnBarrelDidConnect(_ barrel: InfiniteBurnBarrelControllable) {
+        // TODO: Do you want to display something on the UI if the barrel connects?
+    }
+    
+    func infiniteBurnBarrelDidDisconnect(_ barrel: InfiniteBurnBarrelControllable) {
+        // TODO: Do you want to display something on the UI if the barrel disconnects?
+    }
+    
+    func infiniteBurnBarrelDidReceiveReadings(_ barrel: InfiniteBurnBarrelControllable, _ readings: InfiniteBurnBarrelReadable) {
+        updateUI(withReadings: readings)
     }
 }

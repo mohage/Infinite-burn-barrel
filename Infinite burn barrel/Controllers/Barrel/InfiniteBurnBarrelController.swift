@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CocoaLumberjack
 
 private struct Weak<T: AnyObject> {
     weak var object: T?
@@ -61,7 +62,10 @@ class InfiniteBurnBarrelController: InfiniteBurnBarrelControllable
         }
         
         bleController.onDataReceived = { (string) in
+            DDLogInfo("[Barrel Controller] Did receive data: \(string)")
             self.lastReading?.update(withCommand: InfiniteBurnBarrelCommand.command(fromString: string)) // TODO: Decouple the command processor from the class.
+            DDLogInfo("[Barrel Controller] Did parse lastReading: \(self.lastReading)")
+            
             if let reading = self.lastReading {
                 self.controllerDelegates.forEach({ (delegate) in
                     DispatchQueue.main.async {
@@ -80,16 +84,12 @@ class InfiniteBurnBarrelController: InfiniteBurnBarrelControllable
         bleController.disconnect()
     }
     
-    private var lastSentReadings: InfiniteBurnBarrelReadable?
     func sendReadings(_ readings: InfiniteBurnBarrelReadable) {
+        let commandsToSend = Set<InfiniteBurnBarrelCommand>(readings.commands)
         
-        let latestCommands = Set<InfiniteBurnBarrelCommand>(readings.commands)
-        let previousCommands = Set<InfiniteBurnBarrelCommand>(lastSentReadings?.commands ?? [])
-        let commandsToSend = latestCommands.subtracting(previousCommands)
+        DDLogInfo("[Barrel Controller] Will send commands: \(commandsToSend)")
         
         commandsToSend.forEach { self.bleController.sendData($0.string) }
-        
-        lastSentReadings = readings
     }
     
     // MARK: - Delegates Management
