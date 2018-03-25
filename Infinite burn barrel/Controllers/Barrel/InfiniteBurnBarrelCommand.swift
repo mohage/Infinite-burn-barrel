@@ -13,7 +13,7 @@ enum CommandKey: String {
     case blower = "blo"
 }
 
-enum InfiniteBurnBarrelCommand
+enum InfiniteBurnBarrelCommand: Equatable, Hashable
 {
     case unknownCommand
     case fan(on: Bool)
@@ -42,6 +42,21 @@ enum InfiniteBurnBarrelCommand
         }
         
         return .unknownCommand
+    }
+    
+    // MARK: - Equatable
+    public static func ==(lhs: InfiniteBurnBarrelCommand, rhs: InfiniteBurnBarrelCommand) -> Bool {
+        switch (lhs, rhs) {
+        case (.unknownCommand, .unknownCommand): return true
+        case (let .fan(value1), let .fan(value2)): return value1 == value2
+        case (let .blower(value1), let .blower(value2)): return value1 == value2
+        default: return false
+        }
+    }
+    
+    // MARK: - Hashable
+    var hashValue: Int {
+        return self.string.hashValue
     }
 }
 

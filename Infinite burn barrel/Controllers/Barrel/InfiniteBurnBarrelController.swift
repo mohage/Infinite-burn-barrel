@@ -80,15 +80,16 @@ class InfiniteBurnBarrelController: InfiniteBurnBarrelControllable
         bleController.disconnect()
     }
     
-    // TODO: Send commands
-    private var lastSentCommands: [InfiniteBurnBarrelCommand] = []
+    private var lastSentReadings: InfiniteBurnBarrelReadable?
     func sendReadings(_ readings: InfiniteBurnBarrelReadable) {
         
-        // generate an arrays of commands between this object and the lastReadings...
-        
-        let commandsToSend: [InfiniteBurnBarrelCommand] = []
+        let latestCommands = Set<InfiniteBurnBarrelCommand>(readings.commands)
+        let previousCommands = Set<InfiniteBurnBarrelCommand>(lastSentReadings?.commands ?? [])
+        let commandsToSend = latestCommands.subtracting(previousCommands)
         
         commandsToSend.forEach { self.bleController.sendData($0.string) }
+        
+        lastSentReadings = readings
     }
     
     // MARK: - Delegates Management
