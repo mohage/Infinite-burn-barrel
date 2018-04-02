@@ -154,8 +154,8 @@ extension BLEController: CBCentralManagerDelegate {
         self.connectedPeripheral = peripheral
         self.connectingPeripheral = nil
         
-        peripheral.discoverServices([configuration.serviceUUID.cbuuid])
         peripheral.delegate = self
+        peripheral.discoverServices([configuration.serviceUUID.cbuuid])
         
         onConnected?()
     }

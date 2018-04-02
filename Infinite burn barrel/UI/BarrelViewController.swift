@@ -192,10 +192,12 @@ class BarrelViewController: UIViewController {
 extension BarrelViewController: InfiniteBurnBarrelDelegate {
     func infiniteBurnBarrelDidConnect(_ barrel: InfiniteBurnBarrelControllable) {
         // TODO: Do you want to display something on the UI if the barrel connects?
+        // You have the status label at the top
     }
     
     func infiniteBurnBarrelDidDisconnect(_ barrel: InfiniteBurnBarrelControllable) {
         // TODO: Do you want to display something on the UI if the barrel disconnects?
+        // You have the status label at the top
     }
     
     func infiniteBurnBarrelDidReceiveReadings(_ barrel: InfiniteBurnBarrelControllable, _ readings: InfiniteBurnBarrelReadable) {
