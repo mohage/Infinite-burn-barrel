@@ -1,23 +1,33 @@
 #include <SPI.h>
+#include "BLEConnectable.cpp"
 #include "Adafruit_BLE_UART.h"
 
-#define ADAFRUITBLE_REQ 10
-#define ADAFRUITBLE_RDY 2
-#define ADAFRUITBLE_RST 9
-
-class BLEBarrel {
+// BLEBarrel implementation using AdaFruit nRF8001
+class BLEBarrel_AF: public BLEConnectable {
 
   private:
+    // Pinout
+    #define ADAFRUITBLE_REQ 10
+    #define ADAFRUITBLE_RDY 2
+    #define ADAFRUITBLE_RST 9
+
+    /**
+    Above pins are variable, but these are static. These are specific for Mega2560.
+    SCK -> Digital 52
+    MISO -> Digital 50
+    MOSI -> Digital 51
+    */
+
     Adafruit_BLE_UART BTLEserial = Adafruit_BLE_UART(ADAFRUITBLE_REQ, ADAFRUITBLE_RDY, ADAFRUITBLE_RST);
     aci_evt_opcode_t laststatus = ACI_EVT_DISCONNECTED;
 
   public:
-    void begin() {
+    void BLEBarrel_AF::begin() {
       BTLEserial.setDeviceName("Barrel");
       BTLEserial.begin();
     }
 
-    void sendString(String string) {
+    void BLEBarrel_AF::sendString(String string) {
       BTLEserial.pollACI();
 
       aci_evt_opcode_t status = BTLEserial.getState();
@@ -33,7 +43,7 @@ class BLEBarrel {
       }
     }
 
-    String receiveString() {
+    String BLEBarrel_AF::receiveString() {
       BTLEserial.pollACI();
 
       aci_evt_opcode_t status = BTLEserial.getState();

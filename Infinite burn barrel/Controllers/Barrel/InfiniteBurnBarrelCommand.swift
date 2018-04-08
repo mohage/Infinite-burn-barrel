@@ -11,6 +11,7 @@ import Foundation
 enum CommandKey: String {
     case fan
     case blower = "blo"
+    case led
 }
 
 enum InfiniteBurnBarrelCommand: Equatable, Hashable
@@ -18,6 +19,7 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
     case unknownCommand
     case fan(on: Bool)
     case blower(value: Int)
+    case led(on: Bool)
     
     var string: String {
         get {
@@ -25,6 +27,7 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
             case .unknownCommand: return "unknown"
             case .fan(let value): return "\(CommandKey.fan.rawValue)_\(value.commandValue)"
             case .blower(let value): return "\(CommandKey.blower.rawValue)_\(value)"
+            case .led(let value): return "\(CommandKey.led.rawValue)_\(value.commandValue)"
             }
         }
     }
@@ -38,6 +41,8 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
                 return .fan(on: String(value).commandValue)
             } else if key == CommandKey.blower.rawValue, let value = keyValue.last, let intValue = Int(value) {
                 return .blower(value: intValue)
+            } else if key == CommandKey.led.rawValue, let value = keyValue.last {
+                return .led(on: String(value).commandValue)
             }
         }
         
@@ -50,6 +55,7 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
         case (.unknownCommand, .unknownCommand): return true
         case (let .fan(value1), let .fan(value2)): return value1 == value2
         case (let .blower(value1), let .blower(value2)): return value1 == value2
+        case (let .led(value1), let .led(value2)): return value1 == value2
         default: return false
         }
     }

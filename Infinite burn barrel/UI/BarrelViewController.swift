@@ -148,6 +148,7 @@ class BarrelViewController: UIViewController {
         // TODO: This is for testing only
         setHotWaterTemp(value: readings.blower)
         setInstantHotWater(on: readings.fan)
+        setLantern(on: readings.led)
     }
     
     // MARK: - Actions
@@ -161,10 +162,10 @@ class BarrelViewController: UIViewController {
         DDLogVerbose("[BarrelVC - Action] Instant hot water switch changed - isOn: \(sender.isOn)")
         
         // TODO: This is for demo only, replace with real values once you have them
-        if var newReadings = barrelController.lastReading {
-            newReadings.fan = sender.isOn
-            barrelController.sendReadings(newReadings)
-        }
+//        if var newReadings = barrelController.lastReading {
+//            newReadings.fan = sender.isOn
+//            barrelController.sendReadings(newReadings)
+//        }
     }
     
     // TODO: Change min/max values in the storyboard!
@@ -173,14 +174,18 @@ class BarrelViewController: UIViewController {
         setDesiredHotWaterTemp(value: Int(sender.value))
         
         // TODO: This is for demo only, replace with real values once you have them
-        if var newReadings = barrelController.lastReading {
-            newReadings.blower = Int(sender.value)
-            barrelController.sendReadings(newReadings)
-        }
+//        if var newReadings = barrelController.lastReading {
+//            newReadings.blower = Int(sender.value)
+//            barrelController.sendReadings(newReadings)
+//        }
     }
     
     @IBAction func onLanternChangedAction(_ sender: UISwitch) {
         DDLogVerbose("[BarrelVC - Action] Lantern switch changed - isOn: \(sender.isOn)")
+        if var newReadings = barrelController.lastReading {
+            newReadings.led = sender.isOn
+            barrelController.sendReadings(newReadings)
+        }
     }
     
     @IBAction func onSpeakerChangedAction(_ sender: UISwitch) {

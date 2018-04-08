@@ -11,6 +11,7 @@ import Foundation
 protocol InfiniteBurnBarrelReadable {
     var fan: Bool { get set }
     var blower: Int { get set }
+    var led: Bool { get set }
     
     var commands: [InfiniteBurnBarrelCommand] { get }
     
@@ -21,11 +22,13 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
 {
     var fan: Bool = false
     var blower: Int = 0
+    var led: Bool = false
     
     var commands: [InfiniteBurnBarrelCommand] {
         return [
             .fan(on: fan),
-            .blower(value: blower)
+            .blower(value: blower),
+            .led(on: led)
         ]
     }
     
@@ -33,6 +36,7 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
         switch command {
         case .fan(let value): self.fan = value
         case .blower(let value): self.blower = value
+        case .led(let value): self.led = value
         case .unknownCommand: print("Trying to update the object with an unknown command")
         }
     }
