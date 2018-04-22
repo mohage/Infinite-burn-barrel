@@ -150,10 +150,15 @@ class BarrelViewController: UIViewController {
         setInstantHotWater(on: readings.fan)
         setLantern(on: readings.led)
         
-        print("Setting temps: \(readings.burnTemperature); \(readings.surfaceTemperature); \(readings.pumpTemperature)")
+        DDLogVerbose("Setting temps: \(readings.burnTemperature); \(readings.surfaceTemperature); \(readings.pumpTemperature)")
         setCombustionTemp(value: Int(readings.burnTemperature))
         setHotPlateTemp(value: Int(readings.surfaceTemperature))
         setHeatSinkTemp(value: Int(readings.pumpTemperature))
+        
+        DDLogVerbose("Setting voltages: Batt - \(readings.batteryVoltage); TEG - \(readings.tegVoltage)")
+        DDLogVerbose("Setting currents: Batt - \(readings.batteryCurrent); TEG - \(readings.tegCurrent)")
+        setBattery(volts: Double(readings.batteryVoltage), amps: Double(readings.batteryCurrent), watts: 0.0)
+        setTEG(volts: Double(readings.tegVoltage), amps: Double(readings.tegCurrent), watts: 0.0)
     }
     
     // MARK: - Actions

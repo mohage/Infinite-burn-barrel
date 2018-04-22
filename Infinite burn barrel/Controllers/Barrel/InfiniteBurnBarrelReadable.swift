@@ -15,6 +15,10 @@ protocol InfiniteBurnBarrelReadable {
     var burnTemperature: Float { get }
     var surfaceTemperature: Float { get }
     var pumpTemperature: Float { get }
+    var batteryVoltage: Float { get }
+    var tegVoltage: Float { get }
+    var batteryCurrent: Float { get }
+    var tegCurrent: Float { get }
     
     var commands: [InfiniteBurnBarrelCommand] { get }
     
@@ -29,6 +33,10 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
     var burnTemperature: Float = 0.0
     var surfaceTemperature: Float = 0.0
     var pumpTemperature: Float = 0.0
+    var batteryVoltage: Float = 0.0
+    var tegVoltage: Float = 0.0
+    var batteryCurrent: Float = 0.0
+    var tegCurrent: Float = 0.0
     
     var commands: [InfiniteBurnBarrelCommand] {
         return [
@@ -37,7 +45,11 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
             .led(on: led),
             .burnTemperature(temperature: burnTemperature),
             .surfaceTemperature(temperature: surfaceTemperature),
-            .pumpTemperature(temperature: pumpTemperature)
+            .pumpTemperature(temperature: pumpTemperature),
+            .batteryVoltage(voltage: batteryVoltage),
+            .tegVoltage(voltage: tegVoltage),
+            .batteryCurrent(current: batteryCurrent),
+            .tegCurrent(current: tegCurrent)
         ]
     }
     
@@ -49,6 +61,10 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
         case .burnTemperature(let value): self.burnTemperature = value
         case .surfaceTemperature(let value): self.surfaceTemperature = value
         case .pumpTemperature(let value): self.pumpTemperature = value
+        case .batteryVoltage(let value): self.batteryVoltage = value
+        case .tegVoltage(let value): self.tegVoltage = value
+        case .batteryCurrent(let value): self.batteryCurrent = value
+        case .tegCurrent(let value): self.tegCurrent = value
         case .unknownCommand: print("Trying to update the object with an unknown command")
         }
     }

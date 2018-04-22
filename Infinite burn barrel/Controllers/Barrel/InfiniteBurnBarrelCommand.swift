@@ -15,6 +15,10 @@ enum CommandKey: String {
     case burnTemperature = "btemp"
     case surfaceTemperature = "stemp"
     case pumpTemperature = "ptemp"
+    case batteryVoltage = "batvolt"
+    case tegVoltage = "tegvolt"
+    case batteryCurrent = "batcurr"
+    case tegCurrent = "tegcurr"
 }
 
 enum InfiniteBurnBarrelCommand: Equatable, Hashable
@@ -26,7 +30,10 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
     case burnTemperature(temperature: Float)
     case surfaceTemperature(temperature: Float)
     case pumpTemperature(temperature: Float)
-    
+    case batteryVoltage(voltage: Float)
+    case tegVoltage(voltage: Float)
+    case batteryCurrent(current: Float)
+    case tegCurrent(current: Float)
     
     var string: String {
         get {
@@ -38,6 +45,10 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
             case .burnTemperature(let value): return "\(CommandKey.burnTemperature.rawValue)_\(value)"
             case .surfaceTemperature(let value): return "\(CommandKey.surfaceTemperature.rawValue)_\(value)"
             case .pumpTemperature(let value): return "\(CommandKey.pumpTemperature.rawValue)_\(value)"
+            case .batteryVoltage(let value): return "\(CommandKey.batteryVoltage.rawValue)_\(value)"
+            case .tegVoltage(let value): return "\(CommandKey.tegVoltage.rawValue)_\(value)"
+            case .batteryCurrent(let value): return "\(CommandKey.batteryCurrent.rawValue)_\(value)"
+            case .tegCurrent(let value): return "\(CommandKey.tegCurrent.rawValue)_\(value)"
             }
         }
     }
@@ -59,6 +70,14 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
                 return .surfaceTemperature(temperature: Float(value) ?? 0.0)
             } else if key == CommandKey.pumpTemperature.rawValue, let value = keyValue.last {
                 return .pumpTemperature(temperature: Float(value) ?? 0.0)
+            } else if key == CommandKey.batteryVoltage.rawValue, let value = keyValue.last {
+                return .batteryVoltage(voltage: Float(value) ?? 0.0)
+            } else if key == CommandKey.tegVoltage.rawValue, let value = keyValue.last {
+                return .tegVoltage(voltage: Float(value) ?? 0.0)
+            } else if key == CommandKey.batteryCurrent.rawValue, let value = keyValue.last {
+                return .batteryCurrent(current: Float(value) ?? 0.0)
+            } else if key == CommandKey.tegCurrent.rawValue, let value = keyValue.last {
+                return .tegCurrent(current: Float(value) ?? 0.0)
             }
         }
         
@@ -75,6 +94,10 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
         case (let .burnTemperature(value1), let .burnTemperature(value2)): return value1 == value2
         case (let .surfaceTemperature(value1), let .surfaceTemperature(value2)): return value1 == value2
         case (let .pumpTemperature(value1), let .pumpTemperature(value2)): return value1 == value2
+        case (let .batteryVoltage(value1), let .batteryVoltage(value2)): return value1 == value2
+        case (let .tegVoltage(value1), let .tegVoltage(value2)): return value1 == value2
+        case (let .batteryCurrent(value1), let .batteryCurrent(value2)): return value1 == value2
+        case (let .tegCurrent(value1), let .tegCurrent(value2)): return value1 == value2
         default: return false
         }
     }
