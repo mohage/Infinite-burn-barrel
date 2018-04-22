@@ -149,6 +149,11 @@ class BarrelViewController: UIViewController {
         setHotWaterTemp(value: readings.blower)
         setInstantHotWater(on: readings.fan)
         setLantern(on: readings.led)
+        
+        print("Setting temps: \(readings.burnTemperature); \(readings.surfaceTemperature); \(readings.pumpTemperature)")
+        setCombustionTemp(value: Int(readings.burnTemperature))
+        setHotPlateTemp(value: Int(readings.surfaceTemperature))
+        setHeatSinkTemp(value: Int(readings.pumpTemperature))
     }
     
     // MARK: - Actions
