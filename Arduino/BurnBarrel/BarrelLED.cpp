@@ -1,5 +1,11 @@
 #include <SPI.h>
 
+/* NOTE:
+This class is not following the standard pattern that we have in place. 
+It was supposed to be used only for testing. 
+If we end up using it in production, refactor it to the pattern.
+*/
+
 class BarrelLED {
   
   private:

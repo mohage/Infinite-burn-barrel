@@ -9,9 +9,11 @@
 import Foundation
 
 protocol InfiniteBurnBarrelReadable {
-    var fan: Bool { get set }
+    var fan: Int { get set }
     var blower: Int { get set }
-    var led: Bool { get set }
+    var led: Int { get set }
+    var speaker: Int { get set }
+    var dumpLoad: Int { get set }
     var burnTemperature: Float { get }
     var surfaceTemperature: Float { get }
     var pumpTemperature: Float { get }
@@ -27,9 +29,11 @@ protocol InfiniteBurnBarrelReadable {
 
 class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
 {
-    var fan: Bool = false
+    var fan: Int = 0
     var blower: Int = 0
-    var led: Bool = false
+    var led: Int = 0
+    var speaker: Int = 0
+    var dumpLoad: Int = 0
     var burnTemperature: Float = 0.0
     var surfaceTemperature: Float = 0.0
     var pumpTemperature: Float = 0.0
@@ -40,9 +44,11 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
     
     var commands: [InfiniteBurnBarrelCommand] {
         return [
-            .fan(on: fan),
+            .fan(value: fan),
             .blower(value: blower),
-            .led(on: led),
+            .led(value: led),
+            .speaker(value: speaker),
+            .dumpLoad(value: dumpLoad),
             .burnTemperature(temperature: burnTemperature),
             .surfaceTemperature(temperature: surfaceTemperature),
             .pumpTemperature(temperature: pumpTemperature),
@@ -58,6 +64,8 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
         case .fan(let value): self.fan = value
         case .blower(let value): self.blower = value
         case .led(let value): self.led = value
+        case .speaker(let value): self.speaker = value
+        case .dumpLoad(let value): self.dumpLoad = value
         case .burnTemperature(let value): self.burnTemperature = value
         case .surfaceTemperature(let value): self.surfaceTemperature = value
         case .pumpTemperature(let value): self.pumpTemperature = value

@@ -147,8 +147,8 @@ class BarrelViewController: UIViewController {
         
         // TODO: This is for testing only
         setHotWaterTemp(value: readings.blower)
-        setInstantHotWater(on: readings.fan)
-        setLantern(on: readings.led)
+//        setInstantHotWater(on: readings.fan)
+//        setLantern(on: readings.led)
         
         DDLogVerbose("Setting temps: \(readings.burnTemperature); \(readings.surfaceTemperature); \(readings.pumpTemperature)")
         setCombustionTemp(value: Int(readings.burnTemperature))
@@ -193,7 +193,7 @@ class BarrelViewController: UIViewController {
     @IBAction func onLanternChangedAction(_ sender: UISwitch) {
         DDLogVerbose("[BarrelVC - Action] Lantern switch changed - isOn: \(sender.isOn)")
         if var newReadings = barrelController.lastReading {
-            newReadings.led = sender.isOn
+            //newReadings.led = sender.isOn
             barrelController.sendReadings(newReadings)
         }
     }

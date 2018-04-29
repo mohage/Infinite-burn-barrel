@@ -12,6 +12,8 @@ enum CommandKey: String {
     case fan
     case blower = "blo"
     case led
+    case speaker = "spk"
+    case dumpLoad = "dump"
     case burnTemperature = "btemp"
     case surfaceTemperature = "stemp"
     case pumpTemperature = "ptemp"
@@ -24,9 +26,11 @@ enum CommandKey: String {
 enum InfiniteBurnBarrelCommand: Equatable, Hashable
 {
     case unknownCommand
-    case fan(on: Bool)
+    case fan(value: Int)
     case blower(value: Int)
-    case led(on: Bool)
+    case led(value: Int)
+    case speaker(value: Int)
+    case dumpLoad(value: Int)
     case burnTemperature(temperature: Float)
     case surfaceTemperature(temperature: Float)
     case pumpTemperature(temperature: Float)
@@ -39,9 +43,11 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
         get {
             switch self {
             case .unknownCommand: return "unknown"
-            case .fan(let value): return "\(CommandKey.fan.rawValue)_\(value.commandValue)"
+            case .fan(let value): return "\(CommandKey.fan.rawValue)_\(value)"
             case .blower(let value): return "\(CommandKey.blower.rawValue)_\(value)"
-            case .led(let value): return "\(CommandKey.led.rawValue)_\(value.commandValue)"
+            case .led(let value): return "\(CommandKey.led.rawValue)_\(value)"
+            case .speaker(let value): return "\(CommandKey.speaker.rawValue)_\(value)"
+            case .dumpLoad(let value): return "\(CommandKey.dumpLoad.rawValue)_\(value)"
             case .burnTemperature(let value): return "\(CommandKey.burnTemperature.rawValue)_\(value)"
             case .surfaceTemperature(let value): return "\(CommandKey.surfaceTemperature.rawValue)_\(value)"
             case .pumpTemperature(let value): return "\(CommandKey.pumpTemperature.rawValue)_\(value)"
@@ -58,12 +64,16 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
         let keyValue = string.split(separator: "_")
         
         if let key = keyValue.first {
-            if key == CommandKey.fan.rawValue, let value = keyValue.last {
-                return .fan(on: String(value).commandValue)
+            if key == CommandKey.fan.rawValue, let value = keyValue.last, let intValue = Int(value) {
+                return .fan(value: intValue)
             } else if key == CommandKey.blower.rawValue, let value = keyValue.last, let intValue = Int(value) {
                 return .blower(value: intValue)
-            } else if key == CommandKey.led.rawValue, let value = keyValue.last {
-                return .led(on: String(value).commandValue)
+            } else if key == CommandKey.led.rawValue, let value = keyValue.last, let intValue = Int(value) {
+                return .led(value: intValue)
+            } else if key == CommandKey.speaker.rawValue, let value = keyValue.last, let intValue = Int(value) {
+                return .speaker(value: intValue)
+            } else if key == CommandKey.dumpLoad.rawValue, let value = keyValue.last, let intValue = Int(value) {
+                return .dumpLoad(value: intValue)
             } else if key == CommandKey.burnTemperature.rawValue, let value = keyValue.last {
                 return .burnTemperature(temperature: Float(value) ?? 0.0)
             } else if key == CommandKey.surfaceTemperature.rawValue, let value = keyValue.last {
@@ -91,6 +101,8 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
         case (let .fan(value1), let .fan(value2)): return value1 == value2
         case (let .blower(value1), let .blower(value2)): return value1 == value2
         case (let .led(value1), let .led(value2)): return value1 == value2
+        case (let .speaker(value1), let .speaker(value2)): return value1 == value2
+        case (let .dumpLoad(value1), let .dumpLoad(value2)): return value1 == value2
         case (let .burnTemperature(value1), let .burnTemperature(value2)): return value1 == value2
         case (let .surfaceTemperature(value1), let .surfaceTemperature(value2)): return value1 == value2
         case (let .pumpTemperature(value1), let .pumpTemperature(value2)): return value1 == value2
@@ -105,12 +117,6 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
     // MARK: - Hashable
     var hashValue: Int {
         return self.string.hashValue
-    }
-}
-
-private extension Bool {
-    var commandValue: String {
-        return self ? "on" : "off"
     }
 }
 
