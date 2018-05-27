@@ -15,6 +15,12 @@ protocol BLEControllerConfigurable {
 }
 
 struct BLEControllerConfig: BLEControllerConfigurable {
+    var serviceUUID = "ffe0"
+    var rxChannelUUID = "ffe1"
+    var txChannelUUID = "ffe1"
+}
+
+struct ADAFruitBLEControllerConfig: BLEControllerConfigurable {
     var serviceUUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
     var rxChannelUUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"
     var txChannelUUID = "6e400002-b5a3-f393-e0a9-e50e24dcca9e"

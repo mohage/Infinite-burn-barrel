@@ -28,6 +28,7 @@ public protocol BLEControllable {
 class BLEController: NSObject, BLEControllable {
     
     fileprivate let configuration: BLEControllerConfigurable
+    fileprivate var receiveBuffer: String = ""
     
     private var shouldStartScanning = false
     private var shouldConnect = true
@@ -113,8 +114,9 @@ class BLEController: NSObject, BLEControllable {
     }
     
     func sendData(_ dataString: String) {
+        let stringToSend = dataString + "\r\n"
         guard
-            let data = dataString.data(using: .utf8),
+            let data = stringToSend.data(using: .utf8),
             let txChar = txCharacteristic
             else {
                 return
@@ -206,7 +208,22 @@ extension BLEController: CBPeripheralDelegate {
         
         DDLogVerbose("[BLEController] Did receive data for characterictic - data: \(receivedData)")
         if let dataString = String(data: receivedData, encoding: .utf8) {
-            onDataReceived?(dataString)
+            
+            DDLogVerbose("[BLEController] Did receive data for characterictic - string: \(dataString)")
+            
+            receiveBuffer += dataString
+            if receiveBuffer.hasSuffix("\r\n") {
+                
+                DDLogVerbose("[BLEController] Sending string form buffer: \(receiveBuffer)")
+                
+                receiveBuffer
+                    .split(separator: "\r\n")
+                    .forEach { (command) in
+                        onDataReceived?(String(command))
+                }
+                
+                receiveBuffer = ""
+            }
         }
     }
 }

@@ -74,19 +74,19 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
                 return .speaker(value: intValue)
             } else if key == CommandKey.dumpLoad.rawValue, let value = keyValue.last, let intValue = Int(value) {
                 return .dumpLoad(value: intValue)
-            } else if key == CommandKey.burnTemperature.rawValue, let value = keyValue.last {
+            } else if key == CommandKey.burnTemperature.rawValue, let value = keyValue.last, value != "nan" {
                 return .burnTemperature(temperature: Float(value) ?? 0.0)
-            } else if key == CommandKey.surfaceTemperature.rawValue, let value = keyValue.last {
+            } else if key == CommandKey.surfaceTemperature.rawValue, let value = keyValue.last, value != "nan" {
                 return .surfaceTemperature(temperature: Float(value) ?? 0.0)
-            } else if key == CommandKey.pumpTemperature.rawValue, let value = keyValue.last {
+            } else if key == CommandKey.pumpTemperature.rawValue, let value = keyValue.last, value != "nan" {
                 return .pumpTemperature(temperature: Float(value) ?? 0.0)
-            } else if key == CommandKey.batteryVoltage.rawValue, let value = keyValue.last {
+            } else if key == CommandKey.batteryVoltage.rawValue, let value = keyValue.last, value != "nan" {
                 return .batteryVoltage(voltage: Float(value) ?? 0.0)
-            } else if key == CommandKey.tegVoltage.rawValue, let value = keyValue.last {
+            } else if key == CommandKey.tegVoltage.rawValue, let value = keyValue.last, value != "nan" {
                 return .tegVoltage(voltage: Float(value) ?? 0.0)
-            } else if key == CommandKey.batteryCurrent.rawValue, let value = keyValue.last {
+            } else if key == CommandKey.batteryCurrent.rawValue, let value = keyValue.last, value != "nan" {
                 return .batteryCurrent(current: Float(value) ?? 0.0)
-            } else if key == CommandKey.tegCurrent.rawValue, let value = keyValue.last {
+            } else if key == CommandKey.tegCurrent.rawValue, let value = keyValue.last, value != "nan" {
                 return .tegCurrent(current: Float(value) ?? 0.0)
             }
         }
