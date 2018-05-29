@@ -192,6 +192,9 @@ class BarrelViewController: UIViewController {
     
     @IBAction func onLanternChangedAction(_ sender: UISwitch) {
         DDLogVerbose("[BarrelVC - Action] Lantern switch changed - isOn: \(sender.isOn)")
+        
+        barrelController.lastReading?.update(withCommand: .fan(value: (sender.isOn ? 1 : 0)))
+        
         if var newReadings = barrelController.lastReading {
             //newReadings.led = sender.isOn
             barrelController.sendReadings(newReadings)
