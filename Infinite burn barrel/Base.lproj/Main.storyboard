@@ -75,7 +75,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-xX-Tej">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="250" minValue="250" maxValue="1500" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-xX-Tej">
                                                 <rect key="frame" x="123" y="129" width="246" height="31"/>
                                                 <connections>
                                                     <action selector="onCombustionTempChangedAction:" destination="w2d-Ab-Xtg" eventType="valueChanged" id="bja-Ti-IV3"/>
@@ -159,7 +159,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5F-wc-mbX">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="32" minValue="32" maxValue="190" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5F-wc-mbX">
                                                 <rect key="frame" x="125" y="332.5" width="244" height="31"/>
                                                 <connections>
                                                     <action selector="onHotWaterTempChangedAction:" destination="w2d-Ab-Xtg" eventType="valueChanged" id="bSb-vX-2OB"/>
