@@ -114,7 +114,8 @@ class BLEController: NSObject, BLEControllable {
     }
     
     func sendData(_ dataString: String) {
-        let stringToSend = dataString + "\r\n"
+        // TODO: I really don't like this. For some reason the first few chars of every string are lost. I have to add the padding for now.
+        let stringToSend = "padding_1\r\n" + dataString + "\r\n"
         guard
             let data = stringToSend.data(using: .utf8),
             let txChar = txCharacteristic

@@ -25,7 +25,7 @@ protocol InfiniteBurnBarrelControllable
     func disconnect()
     
     var lastReading: InfiniteBurnBarrelReadable? { get }
-    func sendReadings(_ readings: InfiniteBurnBarrelReadable)
+    func sendCommand(_ command: InfiniteBurnBarrelCommand)
     
     func addDelegate(_ delegate: InfiniteBurnBarrelDelegate)
     func removeDelegate(_ delegate: InfiniteBurnBarrelDelegate)
@@ -84,12 +84,8 @@ class InfiniteBurnBarrelController: InfiniteBurnBarrelControllable
         bleController.disconnect()
     }
     
-    func sendReadings(_ readings: InfiniteBurnBarrelReadable) {
-        let commandsToSend = Set<InfiniteBurnBarrelCommand>(readings.commands)
-        
-        DDLogInfo("[Barrel Controller] Will send commands: \(commandsToSend)")
-        
-        commandsToSend.forEach { self.bleController.sendData($0.string) }
+    func sendCommand(_ command: InfiniteBurnBarrelCommand) {
+        self.bleController.sendData(command.string)
     }
     
     // MARK: - Delegates Management

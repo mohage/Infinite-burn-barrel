@@ -9,14 +9,18 @@
 import Foundation
 
 protocol InfiniteBurnBarrelReadable {
-    var fan: Int { get set }
-    var blower: Int { get set }
-    var led: Int { get set }
-    var speaker: Int { get set }
-    var dumpLoad: Int { get set }
+    var fan: Int { get }
+    var blower: Int { get }
+    var led: Int { get }
+    var speaker: Int { get }
+    var dumpLoad: Int { get }
+    var instantHotWater: Int { get }
     var burnTemperature: Float { get }
+    var desiredBurnTemperature: Float { get }
     var surfaceTemperature: Float { get }
     var pumpTemperature: Float { get }
+    var desiredPumpTemperature: Float { get }
+    var heatSinkTemperature: Float { get }
     var batteryVoltage: Float { get }
     var tegVoltage: Float { get }
     var batteryCurrent: Float { get }
@@ -34,28 +38,37 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
     var led: Int = 0
     var speaker: Int = 0
     var dumpLoad: Int = 0
+    var instantHotWater: Int = 0
     var burnTemperature: Float = 0.0
+    var desiredBurnTemperature: Float = 0.0
     var surfaceTemperature: Float = 0.0
     var pumpTemperature: Float = 0.0
+    var desiredPumpTemperature: Float = 0.0
+    var heatSinkTemperature: Float = 0.0
     var batteryVoltage: Float = 0.0
     var tegVoltage: Float = 0.0
     var batteryCurrent: Float = 0.0
     var tegCurrent: Float = 0.0
     
+    // These commands will be sent to Arduino. There's no need to send all of them.
     var commands: [InfiniteBurnBarrelCommand] {
         return [
-            .fan(value: fan),
-            .blower(value: blower),
+            //.fan(value: fan),
+            //.blower(value: blower),
             .led(value: led),
             .speaker(value: speaker),
-            .dumpLoad(value: dumpLoad),
-            .burnTemperature(temperature: burnTemperature),
-            .surfaceTemperature(temperature: surfaceTemperature),
-            .pumpTemperature(temperature: pumpTemperature),
-            .batteryVoltage(voltage: batteryVoltage),
-            .tegVoltage(voltage: tegVoltage),
-            .batteryCurrent(current: batteryCurrent),
-            .tegCurrent(current: tegCurrent)
+            //.dumpLoad(value: dumpLoad),
+            .instantHotWater(value: instantHotWater),
+            //.burnTemperature(temperature: burnTemperature),
+            .desiredBurnTemperature(temperature: desiredBurnTemperature),
+            //.surfaceTemperature(temperature: surfaceTemperature),
+            //.pumpTemperature(temperature: pumpTemperature),
+            .desiredPumpTemperature(temperature: desiredPumpTemperature),
+            //.heatSinkTemperature(temperature: heatSinkTemperature),
+            //.batteryVoltage(voltage: batteryVoltage),
+            //.tegVoltage(voltage: tegVoltage),
+            //.batteryCurrent(current: batteryCurrent),
+            //.tegCurrent(current: tegCurrent)
         ]
     }
     
@@ -66,9 +79,13 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
         case .led(let value): self.led = value
         case .speaker(let value): self.speaker = value
         case .dumpLoad(let value): self.dumpLoad = value
+        case .instantHotWater(let value): self.instantHotWater = value
         case .burnTemperature(let value): self.burnTemperature = value
+        case .desiredBurnTemperature(let value): self.desiredBurnTemperature = value
         case .surfaceTemperature(let value): self.surfaceTemperature = value
         case .pumpTemperature(let value): self.pumpTemperature = value
+        case .desiredPumpTemperature(let value): self.desiredPumpTemperature = value
+        case .heatSinkTemperature(let value): self.heatSinkTemperature = value
         case .batteryVoltage(let value): self.batteryVoltage = value
         case .tegVoltage(let value): self.tegVoltage = value
         case .batteryCurrent(let value): self.batteryCurrent = value
