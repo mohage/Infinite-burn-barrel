@@ -23,7 +23,7 @@ class BarrelViewController: UIViewController {
     @IBOutlet weak var instantHotWaterSwitch: UISwitch!
     @IBOutlet weak var hotWaterValueLabel: UILabel!
     @IBOutlet weak var hotWaterSetLabel: UILabel!
-    @IBOutlet weak var lanternSwitch: UISwitch!
+    @IBOutlet weak var lanternLabel: UILabel!
     @IBOutlet weak var speakerSwitch: UISwitch!
     @IBOutlet weak var listenValueLabel: UILabel!
     @IBOutlet weak var speakTextField: UITextField!
@@ -93,8 +93,8 @@ class BarrelViewController: UIViewController {
         hotWaterSetLabel.text = "Set to (\(formattedString(temperature: value))):"
     }
     
-    private func setLantern(on: Bool) {
-        lanternSwitch.setOn(on, animated: true)
+    private func setLanternLabel(value: Int) {
+        lanternLabel.text = "Lantern (\(value)):"
     }
     
     private func setSpeaker(on: Bool) {
@@ -173,10 +173,12 @@ class BarrelViewController: UIViewController {
         barrelController.sendCommand(command)
     }
     
-    @IBAction func onLanternChangedAction(_ sender: UISwitch) {
-        DDLogVerbose("[BarrelVC - Action] Lantern switch changed - isOn: \(sender.isOn)")
+    @IBAction func onLanternChangedAction(_ sender: UISlider) {
+        let lanternValue = Int(sender.value)
+        DDLogVerbose("[BarrelVC - Action] Lantern switch changed: \(lanternValue)")
         
-        let command = InfiniteBurnBarrelCommand.led(value: (sender.isOn ? 1 : 0))
+        setLanternLabel(value: lanternValue)
+        let command = InfiniteBurnBarrelCommand.led(value: lanternValue)
         barrelController.lastReading?.update(withCommand: command)
         barrelController.sendCommand(command)
     }

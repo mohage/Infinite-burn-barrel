@@ -53,22 +53,11 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
     // These commands will be sent to Arduino. There's no need to send all of them.
     var commands: [InfiniteBurnBarrelCommand] {
         return [
-            //.fan(value: fan),
-            //.blower(value: blower),
             .led(value: led),
             .speaker(value: speaker),
-            //.dumpLoad(value: dumpLoad),
             .instantHotWater(value: instantHotWater),
-            //.burnTemperature(temperature: burnTemperature),
             .desiredBurnTemperature(temperature: desiredBurnTemperature),
-            //.surfaceTemperature(temperature: surfaceTemperature),
-            //.pumpTemperature(temperature: pumpTemperature),
-            .desiredPumpTemperature(temperature: desiredPumpTemperature),
-            //.heatSinkTemperature(temperature: heatSinkTemperature),
-            //.batteryVoltage(voltage: batteryVoltage),
-            //.tegVoltage(voltage: tegVoltage),
-            //.batteryCurrent(current: batteryCurrent),
-            //.tegCurrent(current: tegCurrent)
+            .desiredPumpTemperature(temperature: desiredPumpTemperature)
         ]
     }
     
