@@ -12,6 +12,7 @@ import CocoaLumberjack
 class BarrelViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var statusValueLabel: UILabel!
     @IBOutlet weak var blowerValueLabel: UILabel!
     @IBOutlet weak var combustionTempValueLabel: UILabel!
@@ -28,6 +29,7 @@ class BarrelViewController: UIViewController {
     @IBOutlet weak var listenValueLabel: UILabel!
     @IBOutlet weak var speakTextField: UITextField!
     @IBOutlet weak var footerTextValueLabel: UILabel!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     private let barrelController = InfiniteBurnBarrelController()
     
@@ -37,6 +39,9 @@ class BarrelViewController: UIViewController {
         setStatus(on: false)
         
         setupBarrelController()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     deinit {
@@ -204,5 +209,42 @@ extension BarrelViewController: InfiniteBurnBarrelDelegate {
     
     func infiniteBurnBarrelDidReceiveReadings(_ barrel: InfiniteBurnBarrelControllable, _ readings: InfiniteBurnBarrelReadable) {
         updateUI(withReadings: readings)
+    }
+}
+
+extension BarrelViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        if let text = textField.text {
+            DDLogVerbose("[BarrelVC - Action] Speak sending text: \(text)")
+            
+            let command = InfiniteBurnBarrelCommand.custom(text: text)
+            barrelController.lastReading?.update(withCommand: command)
+            barrelController.sendCommand(command)
+        }
+        textField.resignFirstResponder()
+        
+        return true
+    }
+}
+
+// MARK: Keyboard Handling
+extension BarrelViewController
+{
+    @objc func keyboardWillShow(notification: NSNotification)
+    {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.scrollViewBottomConstraint.constant = -keyboardSize.height
+            })
+            self.scrollView.scrollRectToVisible(speakTextField.frame, animated: true)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.scrollViewBottomConstraint.constant = 0
+        }
     }
 }

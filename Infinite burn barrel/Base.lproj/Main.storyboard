@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkh-k4-Tya" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="585"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infinite burn barrel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-Ff-aqi">
                                                 <rect key="frame" x="8" y="8" width="359" height="44"/>
@@ -205,11 +205,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrL-yE-Qzr">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrL-yE-Qzr">
                                                 <rect key="frame" x="67" y="519" width="300" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="send" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="w2d-Ab-Xtg" id="myX-6h-KDc"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="happy fire my friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVj-6Z-vM3">
                                                 <rect key="frame" x="8" y="565" width="359" height="12"/>
@@ -252,6 +255,7 @@
                                             <constraint firstItem="rVZ-do-R9n" firstAttribute="top" secondItem="Jrv-8g-OKV" secondAttribute="top" id="KpL-xs-0w4"/>
                                             <constraint firstItem="fRA-Bs-T8P" firstAttribute="centerY" secondItem="H2Y-w6-KRt" secondAttribute="centerY" id="Kte-Og-Gcz"/>
                                             <constraint firstAttribute="trailing" secondItem="jJ8-jG-Naq" secondAttribute="trailing" constant="8" id="L4k-v1-I8Y"/>
+                                            <constraint firstItem="rVZ-do-R9n" firstAttribute="top" secondItem="Jvi-6z-YNU" secondAttribute="bottom" constant="15" id="LMC-6J-O2r"/>
                                             <constraint firstItem="4sh-Tw-jn0" firstAttribute="leading" secondItem="jMn-rg-oB0" secondAttribute="leading" id="LiI-Mx-A4c"/>
                                             <constraint firstItem="Jvi-6z-YNU" firstAttribute="leading" secondItem="BBo-Rf-UT2" secondAttribute="trailing" constant="8" id="M2j-9q-xOz"/>
                                             <constraint firstAttribute="trailing" secondItem="N6c-w5-xar" secondAttribute="trailing" constant="8" id="NIP-dm-Ki1"/>
@@ -264,12 +268,12 @@
                                             <constraint firstAttribute="trailing" secondItem="ke6-xc-NnM" secondAttribute="trailing" constant="8" id="TY3-2y-nmv"/>
                                             <constraint firstItem="lgg-KX-e6G" firstAttribute="baseline" secondItem="kPG-d2-prd" secondAttribute="baseline" id="Tvr-X6-eAI"/>
                                             <constraint firstAttribute="trailing" secondItem="g5F-wc-mbX" secondAttribute="trailing" constant="8" id="UjP-mD-78g"/>
+                                            <constraint firstItem="YrL-yE-Qzr" firstAttribute="top" secondItem="rVZ-do-R9n" secondAttribute="bottom" constant="15" id="Vng-Yg-ET1"/>
                                             <constraint firstItem="xnY-na-kRr" firstAttribute="top" secondItem="wdl-yH-aNR" secondAttribute="bottom" constant="8" id="WMY-k2-P0F"/>
                                             <constraint firstItem="MDk-ck-iCp" firstAttribute="leading" secondItem="lKi-Nl-iIh" secondAttribute="trailing" constant="8" id="Wgt-Iv-f4K"/>
                                             <constraint firstItem="8bS-jW-DJP" firstAttribute="leading" secondItem="xAH-b9-JlL" secondAttribute="leading" id="X7u-Lb-Qjf"/>
                                             <constraint firstItem="xay-zE-72R" firstAttribute="leading" secondItem="IfW-rz-Wuk" secondAttribute="trailing" constant="8" id="ZsP-QD-qMi"/>
                                             <constraint firstAttribute="trailing" secondItem="YrL-yE-Qzr" secondAttribute="trailing" constant="8" id="aSI-3W-XGn"/>
-                                            <constraint firstAttribute="bottom" secondItem="OVj-6Z-vM3" secondAttribute="bottom" constant="8" id="ae0-lG-REf"/>
                                             <constraint firstItem="jJ8-jG-Naq" firstAttribute="leading" secondItem="xnY-na-kRr" secondAttribute="trailing" constant="8" id="afX-4l-s7c"/>
                                             <constraint firstItem="9LQ-6s-Rc8" firstAttribute="baseline" secondItem="w0h-eV-VIK" secondAttribute="baseline" id="ak4-zw-aKc"/>
                                             <constraint firstItem="xnY-na-kRr" firstAttribute="leading" secondItem="wdl-yH-aNR" secondAttribute="leading" id="bH5-gd-JnB"/>
@@ -320,7 +324,7 @@
                         <color key="backgroundColor" red="0.52156862745098043" green="0.53725490196078429" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hNq-Zg-877" firstAttribute="leading" secondItem="zvb-4W-sBs" secondAttribute="leading" id="74d-9t-cVq"/>
-                            <constraint firstItem="Zkh-k4-Tya" firstAttribute="height" secondItem="z1V-v6-2l1" secondAttribute="height" priority="250" id="7nP-fP-sEl"/>
+                            <constraint firstItem="Zkh-k4-Tya" firstAttribute="height" secondItem="z1V-v6-2l1" secondAttribute="height" id="7nP-fP-sEl"/>
                             <constraint firstItem="Zkh-k4-Tya" firstAttribute="width" secondItem="z1V-v6-2l1" secondAttribute="width" id="RNi-7K-cfh"/>
                             <constraint firstItem="hNq-Zg-877" firstAttribute="top" secondItem="zvb-4W-sBs" secondAttribute="top" id="TzM-jA-pQC"/>
                             <constraint firstItem="hNq-Zg-877" firstAttribute="bottom" secondItem="zvb-4W-sBs" secondAttribute="bottom" id="XTE-j0-YAQ"/>
@@ -341,6 +345,8 @@
                         <outlet property="instantHotWaterSwitch" destination="A1E-U2-YHS" id="278-4b-Zm4"/>
                         <outlet property="lanternLabel" destination="H2Y-w6-KRt" id="wrR-Iy-TYY"/>
                         <outlet property="listenValueLabel" destination="rVZ-do-R9n" id="Fbm-1q-Zzg"/>
+                        <outlet property="scrollView" destination="hNq-Zg-877" id="GgD-ob-BF0"/>
+                        <outlet property="scrollViewBottomConstraint" destination="XTE-j0-YAQ" id="Kmi-wM-GXD"/>
                         <outlet property="speakTextField" destination="YrL-yE-Qzr" id="Fle-gj-84W"/>
                         <outlet property="speakerSwitch" destination="Jvi-6z-YNU" id="CXF-qk-OTL"/>
                         <outlet property="statusValueLabel" destination="9LQ-6s-Rc8" id="6bf-5A-Rw8"/>
@@ -349,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8v2-t3-ltt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-720.79999999999995" y="-25.637181409295355"/>
+            <point key="canvasLocation" x="-814" y="-45"/>
         </scene>
     </scenes>
 </document>
