@@ -15,6 +15,7 @@
 		3119A5BF20454179004378AE /* Infinite_burn_barrelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3119A5BE20454179004378AE /* Infinite_burn_barrelUITests.swift */; };
 		31B6144761F828A747A60ABD /* Pods_Infinite_burn_barrelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598A7E6CA9794FD4FF4D1A49 /* Pods_Infinite_burn_barrelTests.framework */; };
 		77A13D652067D52C00E785D0 /* BarrelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A13D642067D52C00E785D0 /* BarrelViewController.swift */; };
+		77E3A2BB20E04E8A0099CC54 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E3A2BA20E04E8A0099CC54 /* LaunchViewController.swift */; };
 		77EBE17B205EA5540013D5E6 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE179205EA5540013D5E6 /* BLEController.swift */; };
 		77EBE17C205EA5540013D5E6 /* BLEControllerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */; };
 		77EBE187205EBD5B0013D5E6 /* InfiniteBurnBarrelReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */; };
@@ -60,6 +61,7 @@
 		63BA1BD3862706FB0D5D713D /* Pods-Infinite burn barrelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrelTests/Pods-Infinite burn barrelTests.release.xcconfig"; sourceTree = "<group>"; };
 		73BAA19D5051EE61295C9601 /* Pods-Infinite burn barrelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infinite burn barrelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Infinite burn barrelUITests/Pods-Infinite burn barrelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		77A13D642067D52C00E785D0 /* BarrelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarrelViewController.swift; sourceTree = "<group>"; };
+		77E3A2BA20E04E8A0099CC54 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		77EBE179205EA5540013D5E6 /* BLEController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		77EBE17A205EA5540013D5E6 /* BLEControllerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEControllerConfig.swift; sourceTree = "<group>"; };
 		77EBE184205EBD5A0013D5E6 /* InfiniteBurnBarrelReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteBurnBarrelReadable.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				77A13D642067D52C00E785D0 /* BarrelViewController.swift */,
+				77E3A2BA20E04E8A0099CC54 /* LaunchViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				77EBE17B205EA5540013D5E6 /* BLEController.swift in Sources */,
 				77EBE187205EBD5B0013D5E6 /* InfiniteBurnBarrelReadable.swift in Sources */,
 				77EBE18B205ED3390013D5E6 /* InfiniteBurnBarrelCommand.swift in Sources */,
+				77E3A2BB20E04E8A0099CC54 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

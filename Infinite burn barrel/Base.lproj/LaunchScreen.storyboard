@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +21,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trashcan_bonfire" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-lY-6ck">
                                 <rect key="frame" x="31" y="150" width="259" height="268"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="dDy-lY-6ck" secondAttribute="height" multiplier="259:268" id="XwO-5I-8r3"/>
                                     <constraint firstAttribute="height" constant="268" id="lFY-Tl-mbi"/>
                                     <constraint firstAttribute="width" constant="259" id="vsS-eD-zBB"/>
                                 </constraints>
@@ -45,10 +43,9 @@
                             <constraint firstItem="Nlp-BC-Mok" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WrW-Xr-cgG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nlp-BC-Mok" secondAttribute="bottom" constant="20" id="bkP-JG-B6P"/>
                             <constraint firstItem="W4h-FQ-zqz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="46" id="jlC-dx-Vph"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dDy-lY-6ck" secondAttribute="trailing" constant="30" id="kRU-1q-wa6"/>
                             <constraint firstItem="dDy-lY-6ck" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mNR-ed-aUQ"/>
                             <constraint firstItem="W4h-FQ-zqz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nvJ-ao-PCx"/>
-                            <constraint firstItem="dDy-lY-6ck" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="wpr-HP-BH5"/>
+                            <constraint firstItem="dDy-lY-6ck" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sJh-Gy-eXd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
