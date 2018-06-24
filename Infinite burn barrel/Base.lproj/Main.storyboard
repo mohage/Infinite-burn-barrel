@@ -78,7 +78,7 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="250" minValue="250" maxValue="1500" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-xX-Tej">
                                                 <rect key="frame" x="123" y="129" width="246" height="31"/>
                                                 <connections>
-                                                    <action selector="onCombustionTempChangedAction:" destination="w2d-Ab-Xtg" eventType="valueChanged" id="bja-Ti-IV3"/>
+                                                    <action selector="onCombustionTempChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="0Ht-bK-7YD"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot plate temp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnY-na-kRr">
@@ -138,7 +138,7 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="A1E-U2-YHS">
                                                 <rect key="frame" x="150" y="274" width="51" height="31"/>
                                                 <connections>
-                                                    <action selector="onInstantHotWaterChangedAction:" destination="w2d-Ab-Xtg" eventType="valueChanged" id="okk-G8-Mn1"/>
+                                                    <action selector="onInstantHotWaterChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="oUF-XX-1JB"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot water temp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAH-b9-JlL">
@@ -162,7 +162,7 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="32" minValue="32" maxValue="190" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5F-wc-mbX">
                                                 <rect key="frame" x="125" y="332.5" width="244" height="31"/>
                                                 <connections>
-                                                    <action selector="onHotWaterTempChangedAction:" destination="w2d-Ab-Xtg" eventType="valueChanged" id="bSb-vX-2OB"/>
+                                                    <action selector="onHotWaterTempChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="8o2-OH-lPG"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lantern (0):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-w6-KRt">
@@ -180,7 +180,7 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jvi-6z-YNU">
                                                 <rect key="frame" x="84" y="414" width="51" height="31"/>
                                                 <connections>
-                                                    <action selector="onSpeakerChangedAction:" destination="w2d-Ab-Xtg" eventType="valueChanged" id="ZkW-2l-8rD"/>
+                                                    <action selector="onSpeakerChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="GsK-Ym-Vo0"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrv-8g-OKV">
@@ -223,7 +223,7 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRA-Bs-T8P">
                                                 <rect key="frame" x="125" y="373.5" width="244" height="31"/>
                                                 <connections>
-                                                    <action selector="onLanternChangedAction:" destination="w2d-Ab-Xtg" eventType="valueChanged" id="OAV-nH-Sw7"/>
+                                                    <action selector="onLanternChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="7lr-qW-6xt"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -336,14 +336,17 @@
                         <outlet property="batteryValueLabel" destination="bsW-G0-FeC" id="ebK-RL-dvK"/>
                         <outlet property="blowerValueLabel" destination="lgg-KX-e6G" id="9T1-HD-e6u"/>
                         <outlet property="combustionTempSetLabel" destination="wdl-yH-aNR" id="RvQ-xD-0GW"/>
+                        <outlet property="combustionTempSlider" destination="yCe-xX-Tej" id="pFN-FP-Zut"/>
                         <outlet property="combustionTempValueLabel" destination="xay-zE-72R" id="Fth-mg-7kP"/>
                         <outlet property="footerTextValueLabel" destination="OVj-6Z-vM3" id="B6m-9G-jSY"/>
                         <outlet property="heatSinkTempValueLabel" destination="ke6-xc-NnM" id="qhL-iL-94N"/>
                         <outlet property="hotPlateTempValueLabel" destination="jJ8-jG-Naq" id="pNC-r0-roI"/>
                         <outlet property="hotWaterSetLabel" destination="8bS-jW-DJP" id="rO5-mA-NIR"/>
+                        <outlet property="hotWaterSlider" destination="g5F-wc-mbX" id="Wn5-Ng-tzi"/>
                         <outlet property="hotWaterValueLabel" destination="N6c-w5-xar" id="Do6-Zb-Dfk"/>
                         <outlet property="instantHotWaterSwitch" destination="A1E-U2-YHS" id="278-4b-Zm4"/>
                         <outlet property="lanternLabel" destination="H2Y-w6-KRt" id="wrR-Iy-TYY"/>
+                        <outlet property="lanternSlider" destination="fRA-Bs-T8P" id="2El-g8-9Mb"/>
                         <outlet property="listenValueLabel" destination="rVZ-do-R9n" id="Fbm-1q-Zzg"/>
                         <outlet property="scrollView" destination="hNq-Zg-877" id="GgD-ob-BF0"/>
                         <outlet property="scrollViewBottomConstraint" destination="XTE-j0-YAQ" id="Kmi-wM-GXD"/>

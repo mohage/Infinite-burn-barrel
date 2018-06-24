@@ -31,6 +31,10 @@ class BarrelViewController: UIViewController {
     @IBOutlet weak var footerTextValueLabel: UILabel!
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var combustionTempSlider: UISlider!
+    @IBOutlet weak var hotWaterSlider: UISlider!
+    @IBOutlet weak var lanternSlider: UISlider!
+    
     private let barrelController = InfiniteBurnBarrelController()
     
     override func viewDidLoad() {
@@ -39,6 +43,8 @@ class BarrelViewController: UIViewController {
         setStatus(on: false)
         
         setupBarrelController()
+        
+        sendInitialCommands()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -149,49 +155,61 @@ class BarrelViewController: UIViewController {
         DDLogVerbose("Setting currents: Batt - \(readings.batteryCurrent); TEG - \(readings.tegCurrent)")
         setBattery(volts: Double(readings.batteryVoltage), amps: Double(readings.batteryCurrent), watts: abs(Double(readings.batteryVoltage * readings.batteryCurrent)))
         setTEG(volts: Double(readings.tegVoltage), amps: Double(readings.tegCurrent), watts: abs(Double(readings.tegVoltage * readings.tegCurrent)))
+        
+        clearListenLabel() // TODO: Do you want this label cleared?
+        appendToListenLabel(text: readings.listen)
     }
     
     // MARK: - Actions
-    @IBAction func onCombustionTempChangedAction(_ sender: UISlider) {
-        DDLogVerbose("[BarrelVC - Action] Desired combustion temp slider - value: \(sender.value)")
-        setDesiredCombustionTemp(value: Int(sender.value))
+    @IBAction func onCombustionTempChangedAction() {
+        DDLogVerbose("[BarrelVC - Action] Desired combustion temp slider - value: \(combustionTempSlider.value)")
+        setDesiredCombustionTemp(value: Int(combustionTempSlider.value))
         
-        let command = InfiniteBurnBarrelCommand.desiredBurnTemperature(temperature: sender.value)
-        barrelController.lastReading?.update(withCommand: command)
-        barrelController.sendCommand(command)
+        let command = InfiniteBurnBarrelCommand.desiredBurnTemperature(temperature: combustionTempSlider.value)
+        sendCommand(command)
     }
     
-    @IBAction func onInstantHotWaterChangedAction(_ sender: UISwitch) {
-        DDLogVerbose("[BarrelVC - Action] Instant hot water switch changed - isOn: \(sender.isOn)")
+    @IBAction func onInstantHotWaterChangedAction() {
+        DDLogVerbose("[BarrelVC - Action] Instant hot water switch changed - isOn: \(instantHotWaterSwitch.isOn)")
         
-        let command = InfiniteBurnBarrelCommand.instantHotWater(value: (sender.isOn ? 1 : 0))
-        barrelController.lastReading?.update(withCommand: command)
-        barrelController.sendCommand(command)
+        let command = InfiniteBurnBarrelCommand.instantHotWater(value: (instantHotWaterSwitch.isOn ? 1 : 0))
+        sendCommand(command)
     }
     
-    @IBAction func onHotWaterTempChangedAction(_ sender: UISlider) {
-        DDLogVerbose("[BarrelVC - Action] Desired hot water temp slider - value: \(sender.value)")
+    @IBAction func onHotWaterTempChangedAction() {
+        DDLogVerbose("[BarrelVC - Action] Desired hot water temp slider - value: \(hotWaterSlider.value)")
         
-        setDesiredHotWaterTemp(value: Int(sender.value))
-        let command = InfiniteBurnBarrelCommand.desiredPumpTemperature(temperature: sender.value)
-        barrelController.lastReading?.update(withCommand: command)
-        barrelController.sendCommand(command)
+        setDesiredHotWaterTemp(value: Int(hotWaterSlider.value))
+        let command = InfiniteBurnBarrelCommand.desiredPumpTemperature(temperature: hotWaterSlider.value)
+        sendCommand(command)
     }
     
-    @IBAction func onLanternChangedAction(_ sender: UISlider) {
-        let lanternValue = Int(sender.value)
+    @IBAction func onLanternChangedAction() {
+        let lanternValue = Int(lanternSlider.value)
         DDLogVerbose("[BarrelVC - Action] Lantern switch changed: \(lanternValue)")
         
         setLanternLabel(value: lanternValue)
         let command = InfiniteBurnBarrelCommand.led(value: lanternValue)
-        barrelController.lastReading?.update(withCommand: command)
-        barrelController.sendCommand(command)
+        sendCommand(command)
     }
     
-    @IBAction func onSpeakerChangedAction(_ sender: UISwitch) {
-        DDLogVerbose("[BarrelVC - Action] Speaker switch changed - isOn: \(sender.isOn)")
+    @IBAction func onSpeakerChangedAction() {
+        DDLogVerbose("[BarrelVC - Action] Speaker switch changed - isOn: \(speakerSwitch.isOn)")
         
-        let command = InfiniteBurnBarrelCommand.speaker(value: (sender.isOn ? 1 : 0))
+        let command = InfiniteBurnBarrelCommand.speaker(value: (speakerSwitch.isOn ? 1 : 0))
+        sendCommand(command)
+    }
+    
+    // TODO: Use default values on the UI.
+    private func sendInitialCommands() {
+        onCombustionTempChangedAction()
+        onInstantHotWaterChangedAction()
+        onHotWaterTempChangedAction()
+        onLanternChangedAction()
+        onSpeakerChangedAction()
+    }
+    
+    private func sendCommand(_ command: InfiniteBurnBarrelCommand) {
         barrelController.lastReading?.update(withCommand: command)
         barrelController.sendCommand(command)
     }

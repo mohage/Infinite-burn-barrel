@@ -26,6 +26,7 @@ protocol InfiniteBurnBarrelReadable {
     var batteryCurrent: Float { get }
     var tegCurrent: Float { get }
     var custom: String { get }
+    var listen: String { get }
     
     var commands: [InfiniteBurnBarrelCommand] { get }
     
@@ -51,6 +52,7 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
     var batteryCurrent: Float = 0.0
     var tegCurrent: Float = 0.0
     var custom: String = ""
+    var listen: String = ""
     
     // These commands will be sent to Arduino. There's no need to send all of them.
     var commands: [InfiniteBurnBarrelCommand] {
@@ -82,6 +84,7 @@ class InfiniteBurnBarrelReading: InfiniteBurnBarrelReadable
         case .batteryCurrent(let value): self.batteryCurrent = value
         case .tegCurrent(let value): self.tegCurrent = value
         case .custom(let text): self.custom = text
+        case .listen(let text): self.listen = text
         case .unknownCommand: print("Trying to update the object with an unknown command")
         }
     }

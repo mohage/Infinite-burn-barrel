@@ -26,6 +26,7 @@ enum CommandKey: String {
     case batteryCurrent = "batcurr"
     case tegCurrent = "tegcurr"
     case custom = "com" // Custom commands
+    case listen = "lsn" // Commands from arduino.
 }
 
 enum InfiniteBurnBarrelCommand: Equatable, Hashable
@@ -48,6 +49,7 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
     case batteryCurrent(current: Float)
     case tegCurrent(current: Float)
     case custom(text: String)
+    case listen(text: String)
     
     var string: String {
         get {
@@ -70,6 +72,7 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
             case .batteryCurrent(let value): return "\(CommandKey.batteryCurrent.rawValue)_\(value)"
             case .tegCurrent(let value): return "\(CommandKey.tegCurrent.rawValue)_\(value)"
             case .custom(let text): return "\(CommandKey.custom.rawValue)_\(text)"
+            case .listen(let text): return "\(CommandKey.listen.rawValue)_\(text)"
             }
         }
     }
@@ -113,6 +116,8 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
                 return .tegCurrent(current: Float(value) ?? 0.0)
             } else if key == CommandKey.custom.rawValue, let value = keyValue.last {
                 return .custom(text: String(value))
+            } else if key == CommandKey.listen.rawValue, let value = keyValue.last {
+                return .listen(text: String(value))
             }
         }
         
@@ -140,6 +145,7 @@ enum InfiniteBurnBarrelCommand: Equatable, Hashable
         case (let .batteryCurrent(value1), let .batteryCurrent(value2)): return value1 == value2
         case (let .tegCurrent(value1), let .tegCurrent(value2)): return value1 == value2
         case (let .custom(value1), let .custom(value2)): return value1 == value2
+        case (let .listen(value1), let .listen(value2)): return value1 == value2
         default: return false
         }
     }
