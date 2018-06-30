@@ -114,15 +114,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set to (350F):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdl-yH-aNR">
-                                                <rect key="frame" x="8" y="134" width="107" height="21"/>
+                                                <rect key="frame" x="8" y="134" width="120" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="PUK-0x-S9t"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="250" minValue="250" maxValue="1500" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-xX-Tej">
-                                                <rect key="frame" x="123" y="129" width="246" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="250" minValue="250" maxValue="1500" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-xX-Tej">
+                                                <rect key="frame" x="136" y="129" width="233" height="31"/>
                                                 <connections>
                                                     <action selector="onCombustionTempChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="0Ht-bK-7YD"/>
+                                                    <action selector="onCombustionTouchUpAction:" destination="w2d-Ab-Xtg" eventType="touchUpOutside" id="Pte-V5-DmG"/>
+                                                    <action selector="onCombustionTouchUpAction:" destination="w2d-Ab-Xtg" eventType="touchUpInside" id="Rju-kI-wNm"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot plate temp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnY-na-kRr">
@@ -198,19 +203,27 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set to (105F):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bS-jW-DJP">
-                                                <rect key="frame" x="8" y="337" width="104" height="21"/>
+                                                <rect key="frame" x="8" y="337" width="120" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="q87-Lx-5Jt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="32" minValue="32" maxValue="190" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5F-wc-mbX">
-                                                <rect key="frame" x="125" y="332.5" width="244" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="32" minValue="32" maxValue="190" translatesAutoresizingMaskIntoConstraints="NO" id="g5F-wc-mbX">
+                                                <rect key="frame" x="141" y="332.5" width="228" height="31"/>
                                                 <connections>
                                                     <action selector="onHotWaterTempChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="8o2-OH-lPG"/>
+                                                    <action selector="onHotWaterTouchUpAction:" destination="w2d-Ab-Xtg" eventType="touchUpOutside" id="YR8-WW-CA6"/>
+                                                    <action selector="onHotWaterTouchUpAction:" destination="w2d-Ab-Xtg" eventType="touchUpInside" id="n2r-eS-KM7"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lantern (0):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-w6-KRt">
-                                                <rect key="frame" x="8" y="378" width="91" height="21"/>
+                                                <rect key="frame" x="8" y="378" width="120" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="rSf-DI-Lzr"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -264,10 +277,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRA-Bs-T8P">
-                                                <rect key="frame" x="125" y="373.5" width="244" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="fRA-Bs-T8P">
+                                                <rect key="frame" x="141" y="373.5" width="228" height="31"/>
                                                 <connections>
                                                     <action selector="onLanternChangedAction" destination="w2d-Ab-Xtg" eventType="valueChanged" id="7lr-qW-6xt"/>
+                                                    <action selector="onLanternTouchUp:" destination="w2d-Ab-Xtg" eventType="touchUpInside" id="9KC-m3-rYM"/>
+                                                    <action selector="onLanternTouchUp:" destination="w2d-Ab-Xtg" eventType="touchUpOutside" id="iX4-c3-S1m"/>
                                                 </connections>
                                             </slider>
                                         </subviews>

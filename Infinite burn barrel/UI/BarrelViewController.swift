@@ -164,6 +164,15 @@ class BarrelViewController: UIViewController {
     @IBAction func onCombustionTempChangedAction() {
         DDLogVerbose("[BarrelVC - Action] Desired combustion temp slider - value: \(combustionTempSlider.value)")
         setDesiredCombustionTemp(value: Int(combustionTempSlider.value))
+    }
+    
+    @IBAction func onCombustionTouchUpAction(_ sender: Any) {
+        setCombustionTemperature()
+    }
+    
+    private func setCombustionTemperature() {
+        DDLogVerbose("[BarrelVC] Setting combustion temperature")
+        setDesiredCombustionTemp(value: Int(combustionTempSlider.value))
         
         let command = InfiniteBurnBarrelCommand.desiredBurnTemperature(temperature: combustionTempSlider.value)
         sendCommand(command)
@@ -178,6 +187,15 @@ class BarrelViewController: UIViewController {
     
     @IBAction func onHotWaterTempChangedAction() {
         DDLogVerbose("[BarrelVC - Action] Desired hot water temp slider - value: \(hotWaterSlider.value)")
+        setDesiredHotWaterTemp(value: Int(hotWaterSlider.value))
+    }
+    
+    @IBAction func onHotWaterTouchUpAction(_ sender: Any) {
+        setHotWaterTemperature()
+    }
+    
+    private func setHotWaterTemperature() {
+        DDLogVerbose("[BarrelVC] Setting hot water temperature")
         
         setDesiredHotWaterTemp(value: Int(hotWaterSlider.value))
         let command = InfiniteBurnBarrelCommand.desiredPumpTemperature(temperature: hotWaterSlider.value)
@@ -186,7 +204,17 @@ class BarrelViewController: UIViewController {
     
     @IBAction func onLanternChangedAction() {
         let lanternValue = Int(lanternSlider.value)
-        DDLogVerbose("[BarrelVC - Action] Lantern switch changed: \(lanternValue)")
+        DDLogVerbose("[BarrelVC - Action] Lantern slider changed: \(lanternValue)")
+        setLanternLabel(value: lanternValue)
+    }
+    
+    @IBAction func onLanternTouchUp(_ sender: Any) {
+        setLanternValue()
+    }
+    
+    private func setLanternValue() {
+        let lanternValue = Int(lanternSlider.value)
+        DDLogVerbose("[BarrelVC] Setting lantern value")
         
         setLanternLabel(value: lanternValue)
         let command = InfiniteBurnBarrelCommand.led(value: lanternValue)
@@ -202,10 +230,10 @@ class BarrelViewController: UIViewController {
     
     // TODO: Use default values on the UI.
     private func sendInitialCommands() {
-        onCombustionTempChangedAction()
+        setCombustionTemperature()
         onInstantHotWaterChangedAction()
-        onHotWaterTempChangedAction()
-        onLanternChangedAction()
+        setHotWaterTemperature()
+        setLanternValue()
         onSpeakerChangedAction()
     }
     
